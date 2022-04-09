@@ -71,7 +71,7 @@ def stampa_parola(parola,lettera,stampa):
             la variabile stampa ancora è una stringa vuota e anche mettendo caso che non fosse vuota le stringhe non 
             supportano l'assegnazione per indicizzazione
             '''
-    parola_incompleta = str(stampa)
+    parola_incompleta = ' '.join(stampa)
     print(parola_incompleta)
     return stampa
     
