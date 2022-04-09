@@ -74,6 +74,12 @@ def stampa_parola(parola,lettera,stampa):
     parola_incompleta = ' '.join(stampa)
     print(parola_incompleta)
     return stampa
+
+def controllo_parola(tentivo_parola,parola):
+    if tentivo_parola == parola:
+        return True
+    else:
+        return False
     
         
 def main():
@@ -81,18 +87,29 @@ def main():
     tentativi = 0
     lettere_indovinate = 0
     stampa = ['_']*len(parola)
+    print("Quando si vuole provare a indovinare la parola digitare '+'")
     while tentativi < 5 and lettere_indovinate < len(parola):
         lettera = input("inserire la lettera: ")
-        trovato = controllo_lettera(lettera,parola,stampa)
-        if trovato:
-            lettere_indovinate += 1
-            #stampa_parola(parola,lettera,stampa)
-        else:
-            tentativi += 1
-    if lettere_indovinate == len(parola):
-        print("Bravissimo, hai indovinato la parola che era ",parola)
+        if lettera == '+':
+            tentativo_parola = input("inserire la parola: ")
+            if controllo_parola(tentativo_parola,parola):
+                print("Ma sei proprio un genio, in soli %d tentativi sbagliati, sicuramente non sei Mattia" % (tentativi))
+                break
+            else:
+                print("Buuu, non e la parola corretta... Mattia, sei tu?")
+                tentativi += 1
+        else:    
+            trovato = controllo_lettera(lettera,parola,stampa)
+            if trovato:
+                lettere_indovinate += 1
+            else:
+                tentativi += 1
+    if lettere_indovinate == len(parola) or tentativi < 5:
+        print("Bravissimo, hai indovinato la parola che era",parola)
     else:
-        print("Sei troppo scarso, te l'avevo detto. La parola era ",parola)
+        print("Sei troppo scarso, te l'avevo detto. La parola era",parola)
 
 if __name__ == '__main__':
-    main()
+    main()    
+        
+
