@@ -43,3 +43,49 @@ def main():
         
 if __name__ == '__main__':
     main()
+  
+
+
+
+    
+def controllo_lettera(lettera,parola,stampa):
+    trovato = 1
+    if lettera in parola:
+        print("la lettera %c e presente nella parola" % lettera)
+        stampa = stampa_parola(parola,lettera,stampa)
+        trovato = 1
+    else:
+        print("scarsoo, la lettera %c non e presente nella parola" % lettera)
+        trovato = 0
+    return trovato
+
+def stampa_parola(parola,lettera,stampa):
+    parola_incompleta = ''
+    for i in range(len(parola)):
+        if parola[i] == lettera:
+            stampa[i] = lettera
+    parola_incompleta = str(stampa)
+    print(parola_incompleta)
+    return stampa
+    
+        
+def main():
+    parola = input("inserire la parola: ")
+    tentativi = 0
+    lettere_indovinate = 0
+    stampa = ['_']*len(parola)
+    while tentativi < 5 and lettere_indovinate < len(parola):
+        lettera = input("inserire la lettera: ")
+        trovato = controllo_lettera(lettera,parola,stampa)
+        if trovato:
+            lettere_indovinate += 1
+            #stampa_parola(parola,lettera,stampa)
+        else:
+            tentativi += 1
+    if lettere_indovinate == len(parola):
+        print("Bravissimo, hai indovinato la parola che era ",parola)
+    else:
+        print("Sei troppo scarso, te l'avevo detto. La parola era ",parola)
+
+if __name__ == '__main__':
+    main()
