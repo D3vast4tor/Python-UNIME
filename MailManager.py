@@ -37,13 +37,15 @@ class Mail():
         for i in range(1,self._usercount):    
             self._db[user] = i
             
-    def save_db(self,database):
+    def save_db(self):
         if ast.literal_eval(self._db['account']) == 'admin':
             with open("Database.txt","w") as out_file:
                 for i in range(1,self._usercount):
-                    print("User count: %d\nUser n°%d: %s\nMail: %s\nPassword: %s" % 
-                        (self._usercount,self._usercount,ast.literal_eval(self._db['username']),
-                        ast.literal_eval(self._db['mail']),ast.literal_eval(self._db['password'])) )
+                    print( "User count: %d\nUser n°%d: %s\nMail: %s\nPassword: %s" % 
+                        ( self._usercount,self._usercount,ast.literal_eval( self._db['username'] ),
+                        ast.literal_eval( self._db['mail'] ),ast.literal_eval( self._db['password'] ) ), 
+                        file = out_file
+                        )
             print(colorama.Fore.CYAN + "Salvando il database su disco...")
             time.sleep(2)
             print(colorama.Fore.GREEN + "Database salvato con successo.")
