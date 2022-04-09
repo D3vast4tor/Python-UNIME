@@ -57,4 +57,16 @@ class Mail():
                 self._User[data]
         '''
         DA COMPLETARE IL LOGIN, STO SBAGLIANDO QUALCOSA, LO SO MA NON RIESCO A CAPIRE COSA.
+        APPUNTO PER ME STESSO QUANDO CI RIMETTERò MANO...............
+        
+        
+        ##########################################
+        # COGLIONE DI MERDA CAMBIA L'ORDINE      #
+        # DI MEMORIZZAZIONE DEI SINGOLI UTENTI   #
+        # NEL DATABASE: LE CHIAVI SONO INTERI    #
+        # PER FARE SCORRERE IL CAZZO DI DATABASE #
+        # PIU' GRANDE. MA SIJ STRUNZ, FAMMOC     #
+        ##########################################
+        
+        
         '''
