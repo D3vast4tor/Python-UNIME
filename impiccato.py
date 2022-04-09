@@ -1,4 +1,5 @@
 import colorama,time,pprint
+'''
 class Hanged_man():
     to_guess_word = ''
     _guessed_word = dict()
@@ -43,7 +44,7 @@ def main():
         
 if __name__ == '__main__':
     main()
-  
+'''  
 
 
 
@@ -64,6 +65,12 @@ def stampa_parola(parola,lettera,stampa):
     for i in range(len(parola)):
         if parola[i] == lettera:
             stampa[i] = lettera
+            '''
+            Che succede se mettiamo caso la parola da indovinare è "prova" e metto prima la o invece della p
+            che si trova a indice 2?
+            la variabile stampa ancora è una stringa vuota e anche mettendo caso che non fosse vuota le stringhe non 
+            supportano l'assegnazione per indicizzazione
+            '''
     parola_incompleta = str(stampa)
     print(parola_incompleta)
     return stampa
