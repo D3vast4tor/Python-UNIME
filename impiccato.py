@@ -96,7 +96,7 @@ def main():
                 print("Ma sei proprio un genio, in soli %d tentativi sbagliati, sicuramente non sei Mattia" % (tentativi))
                 break
             else:
-                print("Buuu, non e la parola corretta... Mattia, sei tu?")
+                print("Buuu, non è la parola corretta... Mattia, sei tu?")
                 tentativi += 1
         else:    
             trovato = controllo_lettera(lettera,parola,stampa)
@@ -104,7 +104,7 @@ def main():
                 lettere_indovinate += 1
             else:
                 tentativi += 1
-    if lettere_indovinate == len(parola) or tentativi < 5:
+    if lettere_indovinate == (len(parola)-1) or tentativi < 5:
         print("Bravissimo, hai indovinato la parola che era",parola)
     else:
         print("Sei troppo scarso, te l'avevo detto. La parola era",parola)
