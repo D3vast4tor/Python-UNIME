@@ -257,6 +257,7 @@ def nt_triangularnum(n):
 ###################################   
 def triang_num_with_at_least_n_divisors(n):
     global triangulars
+    results = dict()
     count = 1
     nt_triangularnum(1)
     while(True):
@@ -266,7 +267,10 @@ def triang_num_with_at_least_n_divisors(n):
             if (temp % i) == 0:
                 count_div += 1
         if(count_div >= n):
-            return triangulars
+            results['Triangular number''s value'] = triangulars
+            results['Count triangular'] = count
+            results['Count Div'] = count_div
+            return results
         else:
             print(count_div)
             count += 1
@@ -275,8 +279,12 @@ def triang_num_with_at_least_n_divisors(n):
         
         
 def main():
-    print(triang_num_with_at_least_n_divisors(500))
-        
+    a = triang_num_with_at_least_n_divisors(50)
+    with open("Triangular_number.txt","w") as out_file:
+        out_file.write("Triangular number: %s\nTriangular count: %d\nDivisors count: %d" % (a['Triangular number''s value'],
+                                                                                            a['Count triangular'],
+                                                                                            a['Count Div']
+                                                                                            ) )
     
    
 if __name__ == '__main__':
