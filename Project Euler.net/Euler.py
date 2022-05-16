@@ -101,35 +101,6 @@ def special_pythagorean_triplet():
                     print(c) # c = 425
                     return a*b*c # 31875000
 
-class Triangular:
-    _index = 0
-    _count_triangular = 0
-    _triangular = list()
-    def next_triangular(self): 
-        if self._index == 0:
-            self._triangular.append(1)
-            self._count_triangular += 2
-            self._index += 1
-        else:
-            temp = self._triangular[self._index - 1]+self._count_triangular
-            self._triangular.append(temp)
-            self._count_triangular += 1
-            self._index += 1
-    def count_divisor(self):
-        divisor = 0
-        for i in range(1,self._triangular[self._index - 1]):
-            if( ( self._triangular[self._index - 1] % i) == 0 ):
-                divisor += 1
-        return divisor
-        
-    def divisor_triangular_number(self,n):
-        while(True):
-    
-            self.next_triangular(self)
-            m = self.count_divisor(self)
-            if(m >= n):
-                return self._triangular
-
 def is_even(n):
     if (n % 2) == 0:
         return True
@@ -271,9 +242,40 @@ def sort_decreasing(a):
         a[i] = key 
     return a
 '''
-
+triangulars = 1
+def nt_triangularnum(n):
+    global triangulars
+    if n == 1:
+        pass
+    else:
+        triangulars += int(n)
+###################################     
+#   Ci mette troppo tempo         #
+#   non so se si può ottimizzare  #
+#   una volta triangulars era una #
+#   lista....l'inferno.           #
+###################################   
+def triang_num_with_at_least_n_divisors(n):
+    global triangulars
+    count = 1
+    nt_triangularnum(1)
+    while(True):
+        count_div = 0
+        temp = triangulars
+        for i in range(1,temp + 1):
+            if (temp % i) == 0:
+                count_div += 1
+        if(count_div >= n):
+            return triangulars
+        else:
+            print(count_div)
+            count += 1
+            nt_triangularnum(count)
+        
+        
+        
 def main():
-    pass
+    print(triang_num_with_at_least_n_divisors(500))
         
     
    
