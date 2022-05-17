@@ -185,9 +185,11 @@ class Numletcount:
         out_num = ''
         if int(n[0]) != 0:
             out_num+=self._numtolet1[int(n[0])]
-            out_num+='hundredand'
+            out_num+='hundred'
             n = n[1:]
-            out_num += self.convert2digits(self,n)
+            if int(n) > 0:
+                out_num += 'and'
+                out_num += self.convert2digits(self,n)
         return out_num
             
     def convert4digits(self,n):
@@ -209,13 +211,6 @@ class Numletcount:
             return self.convert3digits(self,n)    
         elif self.count_digits(self,n) == 4:
             return self.convert4digits(self,n)
-            
-#####################################################################
-#   IMPORTANT :                                                     #
-#       In class Numletcount there's an error of +16 to the sum of  #
-#       the number between 1 and 999(one and ninehundredninetynine) #
-#                                                                   #
-#####################################################################
 
 def sort_increasing(a):
     for j in range(1,len(a)):
