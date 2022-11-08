@@ -1,0 +1,3 @@
+Triangular number: 25200
+Triangular count: 224
+Divisors count: 90
